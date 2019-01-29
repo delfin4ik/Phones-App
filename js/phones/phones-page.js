@@ -1,13 +1,17 @@
-`use strict`;
+import PhoneCatalog from './components/phone-catalog.js';
+import PhoneViever from './components/phone-viewer.js';
 
-class PhonesPage {
+export default class PhonesPage {
   constructor({ element }) {
     this._element = element;
 
     this._render();
 
-    this.catalog = new PhoneCatalog({
+    this._catalog = new PhoneCatalog({
       element: document.querySelector('[data-component="phone-catalog"]')
+    });
+    this._viewer = new PhoneViever({
+      element: document.querySelector('[data-component="phone-viewer"]')
     });
   }
 
@@ -45,6 +49,7 @@ class PhonesPage {
     <!--Main content-->
     <div class="col-md-10">
       <div data-component="phone-catalog"></div>
+      <div data-component="phone-viewer" hidden></div>
 
     </div>
   </div>
