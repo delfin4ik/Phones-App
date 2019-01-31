@@ -1,9 +1,11 @@
-export default class PhoneCatalog {
+export default class PhoneCatalog extends Comment {
   constructor({ 
     element, 
     phones = [], 
     onPhoneSelected = () => {}
   }) {
+    super({ element });
+
     this._element = element;
     this._phones = phones;
     this._onPhoneSelected = onPhoneSelected;
@@ -19,10 +21,6 @@ export default class PhoneCatalog {
 
       this._onPhoneSelected(phoneElement.dataset.phoneId);
     });
-  }
-
-  hide() {
-    this._element.hidden = true;
   }
 
   _render() {
